@@ -1,0 +1,62 @@
+# see: https://gist.github.com/octocat/9257657
+
+
+development/Tavares-2015_code/*
+
+snt_examples/*
+*.xlsx 
+*.cvs
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# python generated files #
+######################
+*__pycache__
+*nilearn_cache
+*ipynb_checkpoints
+
+*.csv
+*.xlsx
+*.log
+*.csv
+data/example_subject/snt_18001.log
+data/example_csvs/Adolescent_pilot.csv
+data/example_subject/snt_18001.log
+data/example_subject/snt_18001.xlsx
+data/example_subject/snt_18001_behavior.xlsx
+data/example_subject/snt_18001_timing.xlsx

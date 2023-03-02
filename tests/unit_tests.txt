@@ -1,0 +1,132 @@
+User: matthew
+Test datetime: 2022-10-21 15:39:57.517050
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.570s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-21 15:50:25.819029
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.189s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-21 15:53:24.815737
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.116s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-21 16:04:24.615210
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.217s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-21 16:04:49.610324
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.072s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-21 18:34:46.223500
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+test_00_add_3rd_dimension_output_shape (test_behavior.TestBehavior) ... ok
+test_01_cumulative_mean (test_behavior.TestBehavior) ... ok
+test_02_weight_decisions_constant (test_behavior.TestBehavior) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.143s
+
+OK
+
+......................................................................
+......................................................................
+
+User: matthew
+Test datetime: 2022-10-22 10:11:50.970615
+Python version: 3.10.6 (main, Oct  7 2022, 15:17:23) [Clang 12.0.0 ]
+
+test_00_angle_between_vectors_angles (test_angles.TestAngles) ... ok
+test_01_calculate_angle_1vector_output_shape (test_angles.TestAngles) ... ok
+test_02_calculate_angle_2vectors_pairwise_output_shape (test_angles.TestAngles) ... ok
+test_03_calculate_angle_2vectors_output_shape (test_angles.TestAngles) ... ok
+test_04_calculate_angle_order_inputs_output_shape (test_angles.TestAngles) ... ok
+test_00_add_3rd_dimension_output_shape (test_behavior.TestBehavior) ... ok
+test_01_cumulative_mean (test_behavior.TestBehavior) ... ok
+test_02_weight_decisions_constant (test_behavior.TestBehavior) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.096s
+
+OK
+
+......................................................................
+......................................................................
+
