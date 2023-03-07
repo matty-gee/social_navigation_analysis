@@ -3,15 +3,18 @@ import sys, random
 from pathlib import Path
 import numpy as np
 import pandas as pd
- 
+import numpy.lib.recfunctions as rfn
+import warnings
+warnings.filterwarnings("ignore")
+
 # my modules
 curr_dir = str(Path(__file__).parent.absolute())
 sys.path.append(str(Path(f'{curr_dir}/../social_navigation_analysis')))
 from preprocess import ComputeBehavior2
 from test_utils import *
 
-# test_subject_fname = f'{curr_dir}/../data/example_files/snt_18001.xslx'
 test_subject_fname = '/Users/matty_gee/Dropbox/Projects/social_navigation_analysis/data/example_files/snt_18001.xlsx'
+
 # import unittest
 # sys.path.insert(0, f'{user}/Dropbox/Projects/social_navigation_analysis/tests')
 # from test_utils import *
@@ -34,8 +37,8 @@ class TestBehavior(unittest.TestCase):
     def test_check_input(self):
         exp_shapes = [(2,2), (3,2)]
         to_check = np.array([(3,2),[3,2]])
-        bool = ComputeBehavior2.check_input(to_check, exp_shapes)
-        self.assertEqual(True, bool, 'Shape checker is off')
+        self.assertEqual(True, ComputeBehavior2.check_input(to_check, exp_shapes), 
+                         'Shape checker is off')
 
     # def test_run_output_shape(self):
     #     compute = ComputeBehavior2(file=random_behavior_data())
@@ -57,7 +60,11 @@ class TestBehavior(unittest.TestCase):
         prev_decisions = ComputeBehavior2.get_decisions(decisions, which='previous', shift_by=1)
         self.assertEqual(prev_decisions.shape, (self.n_trials,2))
         self.assertListEqual(prev_decisions[0,:].tolist(), [0,0], 'Previous decisions in row 0 do not equal [0,0]')
-        self.assertListEqual(prev_decisions[1:].tolist(), decisions[0:-1].tolist(), 'Previous decisions in row 1:end do not equal decisions row 0:end-1')
+        self.assertListEqual(
+            prev_decisions[1:].tolist(),
+            decisions[:-1].tolist(),
+            'Previous decisions in row 1:end do not equal decisions row 0:end-1',
+        )
 
     def test_weight_decisions_constant(self):
         decisions = random_behavior_data()['decision'].values.astype(float)
@@ -130,14 +137,30 @@ class TestBehavior(unittest.TestCase):
             max_quad = np.where(overlap == np.max(overlap))[0][0]
             self.assertAlmostEqual(max_quad, q, self.almost_tol, f'The quarant with the max value {max_quad}!={q}')
 
-    def test_centroids(self):
-        # not sure what else to tes there
-        decisions = fake_decisions_2d(n_trials=self.n_trials)
-        coords    = np.cumsum(decisions, 0)
-        centroids = ComputeBehavior2.calc_centroid(coords)
+    def test_cumulative_centroid(self):
 
-        self.assertGreater(np.max(coords, 0)[0], centroids[0][0])
-        self.assertGreater(np.max(coords, 0)[1], centroids[0][1])
+        # test the cumualtive centroid function, which incls. the cumulative wrapper
+
+        coords = ComputeBehavior2.get_coords(fake_decisions_2d(n_trials=self.n_trials), 
+                                             which='actual', demean=False)
+        # coords = np.array([[1,2], [2,3], [3,4], [5,6]])
+
+        cum_centroids  = list(ComputeBehavior2.cumulative(ComputeBehavior2.calc_centroid)(coords))
+        cum_centroids_ = [ComputeBehavior2.calc_centroid(coords[0:t,:]) for t in range(1,len(coords)+1)]# manual
+        cum_centroids  = list(np.array(cum_centroids).flatten())
+        cum_centroids_ = list(np.array(cum_centroids_).flatten())
+
+        for i in range(len(cum_centroids_)): 
+            self.assertTrue(cum_centroids[i] == cum_centroids_[i] or (np.isnan(cum_centroids[i]) and np.isnan(cum_centroids_[i])))
+
+    # def test_centroids(self):
+    #     # not sure what else to tes there
+    #     decisions = fake_decisions_2d(n_trials=self.n_trials)
+    #     coords    = np.cumsum(decisions, 0)
+    #     centroids = ComputeBehavior2.calc_centroid(coords)
+
+    #     self.assertGreater(np.max(coords, 0)[0], centroids[0][0])
+    #     self.assertGreater(np.max(coords, 0)[1], centroids[0][1])
 
     def test_real_data(self):
         
@@ -145,7 +168,7 @@ class TestBehavior(unittest.TestCase):
         coords = []
 
         for c in np.unique(subj_data['char_role_num']): 
-            ixs = np.where((subj_data['char_role_num']==c) == True)[0]
+            ixs = np.where(subj_data['char_role_num']==c)[0]
             crds = ComputeBehavior2.calc_coords(ixs, subj_data.iloc[ixs,:])
 
             if c in [1,2,3,4,5]:

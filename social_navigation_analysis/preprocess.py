@@ -1772,7 +1772,7 @@ class ComputeBehavior2:
         ''' decorator to compute measures cumulatively '''
         @wraps(func)
         def wrapper(values):
-            return np.vstack([func(values[:v, :]) for v in range(len(values))])
+            return np.vstack([func(values[:v, :]) for v in range(1, len(values) + 1)])
         return wrapper
 
     @staticmethod
@@ -1887,7 +1887,7 @@ class ComputeBehavior2:
     @staticmethod
     def calc_centroid(coords, float_dtype='float32'):
         try: 
-            return asarray(Polygon(coords).convex_hull.centroid.coords, dtype=float_dtype)
+            return np.asarray(Polygon(coords).convex_hull.centroid.coords[0], dtype=float_dtype)
         except: 
             return np.array([np.nan, np.nan], dtype=float_dtype)
 
@@ -1917,7 +1917,8 @@ class ComputeBehavior2:
         coords_mean        = cum_mean(decisions_weighted, resp_mask, which='linear') # mean of coords - MAYBE SHOULD BE DECISIONS INSTED?
         coords_centroid    = cumulative(compute_it.calc_centroid)(coordinates) # center of coords
 
-        coords = np.hstack([indices[:,np.newaxis], np.sum(resp_mask, axis=1)[:,np.newaxis], decisions_weighted, coordinates, coords_mean, coords_centroid])
+        coords = np.hstack([indices[:,np.newaxis], np.sum(resp_mask, axis=1)[:,np.newaxis], 
+                            decisions_weighted, coordinates, coords_mean, coords_centroid])
         coords = rfn.unstructured_to_structured(coords, np.dtype([('trial_index', 'uint16'), ('responded', 'bool'), 
                                                                   ('affil_decision', float_dtype), ('power_decision', float_dtype),
                                                                   ('affil_coord', float_dtype), ('power_coord', float_dtype),
