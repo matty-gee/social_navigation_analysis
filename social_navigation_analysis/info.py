@@ -13,7 +13,7 @@ try:
 
     # standard details file
     task = pd.read_excel(str(Path(f'{data_dir}/snt_details.xlsx')))
-    task.sort_values(by='slide_num', inplace=True)
+    task.sort_values(by='cogent_onset', inplace=True)
     decision_trials = task[task['trial_type'] == 'Decision']
     dtype_dict = {'decision_num': int,
                     'scene_num': int,
