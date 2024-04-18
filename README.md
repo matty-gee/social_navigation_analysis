@@ -16,6 +16,7 @@ import sys
 sys.path.insert(0, /path/to/social_navigation_analysis/social_navigation_analysis')
 ```
 
+There is an example of how to run the scripts in "run_preprocessing.ipynb"
 
 ## Contributing
 
